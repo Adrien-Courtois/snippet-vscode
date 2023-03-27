@@ -1,0 +1,26 @@
+{
+	"Squelette ansible": {
+		"prefix": "ansible.skel",
+		"body": [
+		  "---",
+		  "  - name: ${1:all}",
+		  "    hosts: ${2:all}",
+		  "    gather_facts: ${3|true,false|}",
+		  "    tasks:",
+		  "      - name: ${4:all}",
+		  "        ${0}",
+		  "..."
+		],
+		"description": "Squelette ansible"
+	  },
+
+	  "Module apt ansible": {
+		"prefix": "ansible.apt",
+		"body": [
+		  "ansible.builtin.apt:",
+		  "  name: ${1:all}",
+		  "  state: ${2|absent,build-dep,latest,present,fixed|}"
+		],
+		"description": "Module apt ansible"
+	  }
+}
